@@ -425,7 +425,7 @@ const Skills = () => {
           <h3 className="text-2xl font-bold text-white mb-6 text-center">My Learning Journey</h3>
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex-1 flex flex-col items-center p-4 border border-gray-700 rounded-lg bg-gray-800/50">
-              <div className="text-indigo-400 text-4xl font-bold mb-2">3+</div>
+              <div className="text-indigo-400 text-4xl font-bold mb-2">1+</div>
               <div className="text-gray-300 text-center">Years of Web Development</div>
             </div>
             <div className="flex-1 flex flex-col items-center p-4 border border-gray-700 rounded-lg bg-gray-800/50">
@@ -433,7 +433,7 @@ const Skills = () => {
               <div className="text-gray-300 text-center">Technologies Mastered</div>
             </div>
             <div className="flex-1 flex flex-col items-center p-4 border border-gray-700 rounded-lg bg-gray-800/50">
-              <div className="text-indigo-400 text-4xl font-bold mb-2">8+</div>
+              <div className="text-indigo-400 text-4xl font-bold mb-2">3+</div>
               <div className="text-gray-300 text-center">Major Projects Completed</div>
             </div>
           </div>
