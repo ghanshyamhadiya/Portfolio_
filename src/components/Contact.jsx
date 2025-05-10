@@ -23,8 +23,8 @@ const Button = ({ children, primary, className, onClick, type, disabled }) => {
 const Contact = () => {
   const form = useRef();
   const [formData, setFormData] = useState({
-    user_name: '',
-    user_email: '',
+    name: '', // Changed from user_name to name to match template
+    email: '', // Changed from user_email to email to match template
     subject: '',
     message: ''
   });
@@ -54,12 +54,20 @@ const Contact = () => {
     setIsSubmitting(true);
     setErrorMessage('');
     
+    // Create template parameters to match EmailJS template variables
+    const templateParams = {
+      name: formData.name,        // This will match {{name}} in your template
+      email: formData.email,      // This will match {{email}} in your template
+      subject: formData.subject,  // This will match {{subject}} in your template
+      message: formData.message   // This will match {{message}} in your template
+    };
+    
     // Send email using EmailJS
-    emailjs.sendForm(
-      'service_qig13fs', // Replace with your EmailJS service ID
-      'template_huvdi7a', // Replace with your EmailJS template ID
-      form.current,
-      'BpiqXCZe24GyY1hc9'
+    emailjs.send(
+      'service_qig13fs',            // Your EmailJS service ID
+      'template_huvdi7a',           // Your EmailJS template ID
+      templateParams,               // Parameters that match your template variables
+      'BpiqXCZe24GyY1hc9'           // Your EmailJS public key
     )
     .then((result) => {
       console.log('Email sent successfully:', result.text);
@@ -68,8 +76,8 @@ const Contact = () => {
       
       // Reset form after successful submission
       setFormData({
-        user_name: '',
-        user_email: '',
+        name: '',
+        email: '',
         subject: '',
         message: ''
       });
@@ -270,8 +278,8 @@ const Contact = () => {
                     <div className="relative group">
                       <input
                         type="text"
-                        name="user_name"
-                        value={formData.user_name}
+                        name="name" // Changed from user_name to name
+                        value={formData.name}
                         onChange={handleChange}
                         placeholder="Your Name"
                         required
@@ -285,8 +293,8 @@ const Contact = () => {
                     <div className="relative group">
                       <input
                         type="email"
-                        name="user_email"
-                        value={formData.user_email}
+                        name="email" // Changed from user_email to email
+                        value={formData.email}
                         onChange={handleChange}
                         placeholder="Your Email"
                         required
